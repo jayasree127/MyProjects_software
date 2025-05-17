@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examinations</title>
+    <header>
+        <div class="banner" style="background-image: url(imgs/geometric-science-education-background-vector-gradient-blue-digital-remix_53876-125993.jpg);">
+        <img src="imgs/images (3).jpeg" height="90px;" width="150px;">
+    <nav class="navbar" >
+        <ul class="navbar-links">
+        <a href="home.html" >Home</a>
+        <a href="exam.html" >Examination</a>
+        <a href="course.html">Courses</a>
+        <a href="aboutUs.html">About us</a>
+        <a href="certification.html">Certifications</a>
+    </ul>
+    </nav>
+</header>
+</div>
+
+
+<!--Styling our website-->
+<style>
+    *{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        
+    }
+    body{
+        font-family:'Segeo UI',sans-serif;
+        background: linear-gradient(135deg, #4facfe,#00f2fe);
+        color:#333;
+        padding: 20px;
+        background-image: url('imgs/geometric-science-education-background-vector-gradient-blue-digital-remix_53876-125993.jpg');
+    }
+    /*Let style the navbar*/
+    .navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:10px;
+    box-shadow:  rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    background-color: orchid;
+}
+.navbar-links {
+    display: flex;
+    column-gap: 20px;
+}
+.navbar-links a{
+    text-decoration: none;
+    color: blue;
+}
+.navbar-links a:hover{
+    text-decoration: underline;
+    background-color: mediumvioletred;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 50px;
+    margin-top: -90px;
+    margin-left: 20px;
+    margin-right: -30px;
+     
+
+}
+.foot{
+    margin-top: 110px;
+    /*padding-top: 20px;*/
+    background-color: #1D2332;
+    color:antiquewhite;
+    padding-right: 40px ;
+    padding-left:40px ;
+    padding-top:40px ;
+    padding-bottom: 20px;
+}
+    .quiz-container{
+        max-width: 600px;
+        margin:auto;
+        margin-top: 40px;
+        background: #fff;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+    .quiz-container h2{
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    .option{
+        background: #d1e7ff;
+        margin: 10px 0;
+        padding: 12px 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s ease;
+    }
+    .option:hover{
+        background: #d1e7ff;
+    }
+
+    #submit{
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #00bcd4;
+        color: black;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    #submit:hover{
+        background: #0097a7;
+    }
+
+    #score{
+        font-size: 20px;
+        text-align: center;
+        margin-top: 20px;
+    }
+    @media (max-width:600px){
+        .quiz-container{
+            padding: 20px;
+        }
+    }
+
+    .pre{
+        font-family: Verdana;
+        color: #1D2332;
+        background-color: #768828;
+        padding: 15px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="pre" >
+        <h2>Dear Learner, Attend the given Pre-exam to go qualify for Course</h2>
+    </div>
+    <div class="quiz-container" id="quiz">
+        <h2 id="question">Question</h2>
+        <div id="options">
+
+        </div>
+        <button id="submit">Next</button>
+
+        <div id="score"></div>
+    </div>
+    
+
+<!--Javascript code -->
+<script>
+    const quizData=[
+        {
+            question: "Who is considered as Forerunner of Akbar?",
+            options: ["Nadir Shah","Muzaffar Jhan","Sher shah","Chandha sahib"],
+            answer: "Sher shah"
+        },
+        {
+            question: "Which desert is known as Golden desert in the world?",
+            options: ["Sahara Desert","Gopi Desert","Nubra Desert","Cholistan Desert"],
+            answer: "Gopi Desert"
+        },
+        {
+            question: "The average age of 30 boys of a class is equal to 14 years. When the age of the class teacher is included the average becomes 15 years.Find the age of the teacher.",
+            options:["45","42","50","44"],
+            answer:"45"
+        },
+        {
+            question:"The average of 11 numbers is 10.9. If the average of first six is 10.5 and that of the last 6 is 11.4 then 6th number is?",
+            options:["11.4","11.5","11.0","11.3"],
+            answer:"11.5"
+        },
+        {
+            question:"A shop dealer makes his goods 25% above CP and then while selling gives a discount of 12% on MP.Find his profit %",
+            options:["15%","12%","11%","10%"],
+            answer: "10%"
+        },
+        {
+            question:"A & B rent a posture for 10 months. A put in 80 cows for 7 months. How many can B put in for the remaining 3 months, if he pays half as much again as A ?",
+            options:["120","280","180","200"],
+            answer:"280"
+        },
+        {
+            question:"Psychology: Human Being:: Ornithology : ?",
+            options:["Birds","Volcano","Insects","Replies"],
+            answer:"Birds"
+        },
+        {
+            question:"EGIK : FHJL:: MOQS: ?",
+            options:["LNOQ","NPRT","KMOQ","NRPT"],
+            answer:"NPRT"
+        },
+        {
+            question:"Find the missing number in this series: 43,172,86,344",
+            options:["172","258","129","430"],
+            answer:"172"
+        },
+        {
+            question:"Find the odd word from the given alternatives",
+            options:["Herb","Flower","Tree","Shrub"],
+            answer:"Flower"
+        },
+
+    ];
+    let currentQuiz=0;
+    let score=0;
+    const questionE1=document.getElementById('question');
+    const OptionE1=document.getElementById('options');
+    const submitBtn=document.getElementById('submit');
+    const scoreE1= document.getElementById('score');
+
+    function loadQuiz(){
+        deselectOptions();
+        const currentQuizData=quizData[currentQuiz];
+        questionE1.innerText=currentQuizData.question;
+
+        OptionE1.innerHTML="";
+        currentQuizData.options.forEach(option=>{
+            const optionDiv= document.createElement('div');
+            optionDiv.classList.add('option');
+            optionDiv.innerText=option;
+            optionDiv.addEventListener('click',()=>selectOption(optionDiv));
+            OptionE1.appendChild(optionDiv);
+        });
+    }
+
+    function deselectOptions(){
+        document.querySelectorAll('.option').forEach(el=>{
+            el.style.background="#f1f1f1";
+            el.classList.remove('selected');
+        });
+    }
+
+    function selectOption(optionElement){
+        deselectOptions();
+        optionElement.classList.add('selected');
+        optionElement.style.background='#a3e4ff';
+    }
+
+    submitBtn.addEventListener('click',()=>{
+        const selected=document.querySelector('.option.selected');
+        if(selected){
+            const answer=selected.innerText;
+            if(answer==quizData[currentQuiz].answer){
+                score++;
+            }
+            currentQuiz++;
+            if(currentQuiz<quizData.length){
+                loadQuiz();
+            }
+            else{
+                quiz.innerHTML= `<h2>You Scored ${score}/${quizData.length}</h2>
+                <button onclick="location.reload()">Restart Quiz</button>`;
+            }
+        }
+        else{
+            alert("Please select an option!");
+        }
+    });
+    loadQuiz();
+    </script>
+
+<footer class="foot">
+    <nav>
+        About Us | Privacy Policy | Contact Us | FAQ | Terms & Conditions
+        <br>
+        Copyright &copy 2025 | <mark>exams@gmail.com</mark>
+        <br>
+        
+    </nav>
+</footer>
+    </body>
+</html>
